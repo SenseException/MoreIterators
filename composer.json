@@ -1,0 +1,29 @@
+{
+    "name": "senseexception/more-iterator", 
+    "description": "Extending the shipped Iterators of PHP with new Iterators",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "Iterator",
+        "Traversable"
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.5"
+    },
+    "autoload": {
+        "psr-0": { "MoreIterator\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-0": { "MoreIteratorTest\\": "tests/" }
+    },
+    "authors": [
+        {
+            "name": "Claudio",
+            "email": "claudio@budgegeria.de"
+        }
+    ],
+    "minimum-stability": "dev"
+}

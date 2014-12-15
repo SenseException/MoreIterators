@@ -1,6 +1,6 @@
 # MoreIterators
 
-[![Build Status](https://travis-ci.org/SenseException/MoreIterator.svg?branch=master)](https://travis-ci.org/SenseException/MoreIterator)
+[![Build Status](https://travis-ci.org/SenseException/MoreIterators.svg?branch=master)](https://travis-ci.org/SenseException/MoreIterators)
 
 Extending the shipped Iterators of PHP with new Iterators
 

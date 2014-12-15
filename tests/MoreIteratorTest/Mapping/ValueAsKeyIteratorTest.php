@@ -18,6 +18,7 @@
 
 namespace MoreIteratorTest\Mapping;
 
+use ArrayIterator;
 use MoreIterator\Mapping\ValueAsKeyIterator;
 use PHPUnit_Framework_TestCase;
 
@@ -30,18 +31,18 @@ use PHPUnit_Framework_TestCase;
  */
 class ValueAsKeyIteratorTest extends PHPUnit_Framework_TestCase
 {
-    public function testIteration()
+    public function testIteratorStructure()
     {
-        $array = array(
+        $innerIterator = new ArrayIterator(array(
             array('id' => 1, 'value' => 'Foo'),
             array('id' => 2, 'value' => 'Bar'),
             array('id' => 3, 'value' => 'Baz'),
-        );
+        ));
         $function = function($current) {
             return $current['id'];
         };
 
-        $iterator = new ValueAsKeyIterator($array, $function);
+        $iterator = new ValueAsKeyIterator($innerIterator, $function);
 
         $expected = array(
             1 => array('id' => 1, 'value' => 'Foo'),
@@ -50,5 +51,34 @@ class ValueAsKeyIteratorTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertSame($expected, iterator_to_array($iterator));
+    }
+
+    public function testWhileIteration()
+    {
+        $innerIterator = new ArrayIterator(array(
+            array('id' => 1, 'value' => 'Foo'),
+            array('id' => 2, 'value' => 'Bar'),
+            array('id' => 3, 'value' => 'Baz'),
+        ));
+        $function = function($current) {
+            return $current['id'];
+        };
+
+        $iterator = new ValueAsKeyIterator($innerIterator, $function);
+
+        $actual = array();
+        $iterator->rewind();
+        while ($iterator->valid()) {
+            $actual[$iterator->key()] = $iterator->current();
+            $iterator->next();
+        }
+
+        $expected = array(
+            1 => array('id' => 1, 'value' => 'Foo'),
+            2 => array('id' => 2, 'value' => 'Bar'),
+            3 => array('id' => 3, 'value' => 'Baz'),
+        );
+
+        $this->assertSame($expected, $actual);
     }
 }

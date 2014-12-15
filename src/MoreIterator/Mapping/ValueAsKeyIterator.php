@@ -18,8 +18,9 @@
 
 namespace MoreIterator\Mapping;
 
-use ArrayIterator;
 use Closure;
+use Iterator;
+use OuterIterator;
 
 /**
  * An Iterator, where the current value or a part of it can be used as a key
@@ -27,8 +28,13 @@ use Closure;
  * @author Claudio Zizza
  * @license MIT
  */
-class ValueAsKeyIterator extends ArrayIterator
+class ValueAsKeyIterator implements OuterIterator
 {
+
+    /**
+     * @var Iterator
+     */
+    private $iterator;
 
     /**
      * @var Closure
@@ -39,10 +45,10 @@ class ValueAsKeyIterator extends ArrayIterator
      * @param array $array
      * @param Closure $getKeyValue
      */
-    public function __construct(array $array, Closure $getKeyValue)
+    public function __construct(Iterator $iterator, Closure $getKeyValue)
     {
-        parent::__construct($array);
         $this->getKeyValue = $getKeyValue;
+        $this->iterator = $iterator;
     }
 
     /**
@@ -53,4 +59,45 @@ class ValueAsKeyIterator extends ArrayIterator
         $function = $this->getKeyValue;
         return $function($this->current());
     }
+
+    /**
+     * @return mixed
+     */
+    public function current()
+    {
+        return $this->iterator->current();
+    }
+
+    /**
+     * @return Iterator
+     */
+    public function getInnerIterator()
+    {
+        return $this->iterator;
+    }
+
+    /**
+     * @return null
+     */
+    public function next()
+    {
+        $this->iterator->next();
+    }
+
+    /**
+     * @return null
+     */
+    public function rewind()
+    {
+        $this->iterator->rewind();
+    }
+
+    /**
+     * @return bool
+     */
+    public function valid()
+    {
+        return $this->iterator->valid();
+    }
+
 }

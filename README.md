@@ -15,3 +15,10 @@ for the main reason: I love Iterators.
 
 ## What kind of Iterator does this repository contain?
 
+### FileContent
+
+* CsvIterator (iterate through a CSV file)
+
+### Mapping
+
+* ValueAsKeyIterator (use a part of the current value as key, like the id of a model object)

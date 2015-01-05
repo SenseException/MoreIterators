@@ -22,3 +22,7 @@ for the main reason: I love Iterators.
 ### Mapping
 
 * ValueAsKeyIterator (use a part of the current value as key, like the id of a model object)
+
+### Filter
+
+* UniqueIterator

@@ -25,8 +25,7 @@ use PHPUnit_Framework_TestCase;
  * @see \MoreIterator\FileContent\CsvIterator
  *
  * @author Claudio Zizza
- * @license MIT
- * @group MoreIterator_FileContent_CsvIterator
+ * @group MoreIterator_FileContent
  */
 class CsvIteratorTest extends PHPUnit_Framework_TestCase
 {

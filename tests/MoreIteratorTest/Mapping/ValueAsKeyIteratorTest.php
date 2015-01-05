@@ -26,8 +26,7 @@ use PHPUnit_Framework_TestCase;
  * @see \MoreIterator\Mapping\ValueAsKeyIterator
  *
  * @author Claudio Zizza
- * @license MIT
- * @group MoreIterator_Mapping_ValueAsKeyIterator
+ * @group MoreIterator_Mapping
  */
 class ValueAsKeyIteratorTest extends PHPUnit_Framework_TestCase
 {

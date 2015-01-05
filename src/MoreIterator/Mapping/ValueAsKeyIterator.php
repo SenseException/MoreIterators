@@ -26,7 +26,6 @@ use OuterIterator;
  * An Iterator, where the current value or a part of it can be used as a key
  *
  * @author Claudio Zizza
- * @license MIT
  */
 class ValueAsKeyIterator implements OuterIterator
 {

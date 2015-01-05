@@ -25,7 +25,6 @@ use SplFileObject;
  * Iterate through a CSV file line by line and returns its content as array
  *
  * @author Claudio Zizza
- * @license MIT
  */
 class CsvIterator implements IteratorAggregate
 {

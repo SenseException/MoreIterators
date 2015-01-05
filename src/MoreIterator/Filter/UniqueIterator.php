@@ -22,7 +22,7 @@ use FilterIterator;
 use Iterator;
 
 /**
- * Filters already traversed value
+ * Filters already traversed values
  *
  * @author Claudio Zizza
  */

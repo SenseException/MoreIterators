@@ -37,7 +37,7 @@ class UniqueIteratorTest extends PHPUnit_Framework_TestCase
         $unique = iterator_to_array(new UniqueIterator($iterator));
         $expected = array(0 => 'foo', 1 => 'bar', 2 => 'baz', 5 => 'qux');
 
-        $this->assertEquals($expected, $unique);
+        $this->assertSame($expected, $unique);
     }
 
     public function testWhileIteration()
@@ -54,6 +54,6 @@ class UniqueIteratorTest extends PHPUnit_Framework_TestCase
             $unique->next();
         }
 
-        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 }
